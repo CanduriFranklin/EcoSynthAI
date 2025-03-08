@@ -14,7 +14,7 @@ export default function HomePage() {
       <header className="border-b">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Leaf className="h-5 w-5 text-primary" />
+            <Leaf className="h-5 w-5 text-primary animate-pulse" />
             <span className="font-semibold">EcoSynthAI</span>
           </div>
           <div className="flex items-center gap-4">
@@ -26,6 +26,7 @@ export default function HomePage() {
               size="sm"
               onClick={() => logoutMutation.mutate()}
               disabled={logoutMutation.isPending}
+              className="transition-all hover:scale-105"
             >
               <LogOut className="h-4 w-4 mr-2" />
               Logout
@@ -34,14 +35,22 @@ export default function HomePage() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-8 animate-fadeIn">
         <h1 className="text-3xl font-bold mb-8">Environmental Dashboard</h1>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <ClimateWidget />
-          <InfrastructureWidget />
-          <AlgaeWidget />
-          <UrbanWidget />
+          <div className="transform hover:scale-[1.02] transition-transform duration-200">
+            <ClimateWidget />
+          </div>
+          <div className="transform hover:scale-[1.02] transition-transform duration-200">
+            <InfrastructureWidget />
+          </div>
+          <div className="transform hover:scale-[1.02] transition-transform duration-200">
+            <AlgaeWidget />
+          </div>
+          <div className="transform hover:scale-[1.02] transition-transform duration-200">
+            <UrbanWidget />
+          </div>
         </div>
       </main>
     </div>

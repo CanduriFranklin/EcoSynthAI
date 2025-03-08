@@ -51,9 +51,12 @@ export default function ClimateWidget() {
   }
 
   return (
-    <Card>
+    <Card className="animate-slideIn">
       <CardHeader>
-        <CardTitle>Climate Data</CardTitle>
+        <CardTitle className="flex items-center gap-2">
+          <Thermometer className="h-5 w-5 text-red-500" />
+          Climate Data
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-6">
@@ -109,6 +112,7 @@ export default function ClimateWidget() {
                   dataKey="temperature" 
                   stroke="#ef4444" 
                   dot={false}
+                  animationDuration={300}
                 />
                 <Line 
                   yAxisId="humid"
@@ -116,9 +120,14 @@ export default function ClimateWidget() {
                   dataKey="humidity" 
                   stroke="#3b82f6" 
                   dot={false}
+                  animationDuration={300}
                 />
               </LineChart>
             </ResponsiveContainer>
+          </div>
+
+          <div className="text-sm text-muted-foreground mt-4">
+            Last updated: {new Date(data.timestamp).toLocaleTimeString()}
           </div>
         </div>
       </CardContent>
