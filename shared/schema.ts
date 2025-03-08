@@ -29,6 +29,11 @@ export interface InfrastructureData {
   type: string;
   location: string;
   lastUpdate: Date;
+  metrics?: {
+    efficiency: number;
+    maintenance: string;
+    lastIncident?: Date;
+  };
 }
 
 export interface AlgaeData {
@@ -36,6 +41,8 @@ export interface AlgaeData {
   location: string;
   nutrients: number;
   temperature: number;
+  timestamp: Date;
+  trend?: "increasing" | "stable" | "decreasing";
 }
 
 export interface UrbanData {
@@ -43,4 +50,10 @@ export interface UrbanData {
   sustainabilityScore: number;
   energyEfficiency: number;
   waterManagement: number;
+  timestamp: Date;
+  alerts?: {
+    type: string;
+    message: string;
+    severity: "info" | "warning" | "critical";
+  }[];
 }
