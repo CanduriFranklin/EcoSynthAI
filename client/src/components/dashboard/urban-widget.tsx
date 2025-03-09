@@ -64,7 +64,7 @@ export default function UrbanWidget() {
       <CardContent>
         <div className="space-y-6">
           {data.alerts && data.alerts.length > 0 && (
-            <Alert variant={data.alerts[0].severity === "critical" ? "destructive" : "warning"}>
+            <Alert variant={data.alerts[0].severity === "critical" ? "destructive" : "default"}>
               <AlertTriangle className="h-4 w-4" />
               <AlertDescription>
                 {data.alerts.map((alert, index) => (

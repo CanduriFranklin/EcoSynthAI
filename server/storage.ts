@@ -143,7 +143,7 @@ export class MemStorage implements IStorage {
       energyEfficiency: 80 + (Math.random() * 10),
       waterManagement: 70 + (Math.random() * 15),
       timestamp: new Date(),
-      alerts: generateAlerts(),
+      alerts: generateAlerts().map(alert => ({ ...alert, severity: alert.severity as "warning" | "critical" | "info" })),
     };
   }
 }

@@ -5,6 +5,8 @@ import 'jspdf-autotable';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 
+declare module 'file-saver';
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
