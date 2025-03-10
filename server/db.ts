@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const uri = process.env.MONGODB_URI || 'mongodb+srv://fcandurin914:tVcx3w401jA19ufX@cluster-ecosynthai.ugktc.mongodb.net/';
-const client = new MongoClient(uri, { useUnifiedTopology: true });
+const client = new MongoClient(uri);
 
 async function connectDB() {
   try {
