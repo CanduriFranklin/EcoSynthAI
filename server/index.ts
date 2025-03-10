@@ -3,6 +3,7 @@ dotenv.config();
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes.js";
 import { setupVite, serveStatic, log } from "./vite.js";
+import { connectDB } from './db';
 
 console.log('SESSION_SECRET:', process.env.SESSION_SECRET);
 
@@ -41,6 +42,7 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  await connectDB();
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
